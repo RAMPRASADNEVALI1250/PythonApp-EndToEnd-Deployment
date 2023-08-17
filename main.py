@@ -1,3 +1,4 @@
+from time import sleep
 from http.server import HTTPServer,BaseHTTPRequestHandler
 
 HOST = '0.0.0.0'
@@ -24,4 +25,6 @@ def run(host, port, server_class=HTTPServer, hanlder_class=Handler):
     httpd.server_close()
 
 if __name__ == '__main__':
+    sleep(30)
+    print("Starting server.....")
     run(HOST, PORT)

@@ -26,3 +26,15 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /heatlhz
+            port: http
+          failureThreshold: 2
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /heatlhz
+            port: http
+          failureThreshold: 30
+          periodSeconds: 10
