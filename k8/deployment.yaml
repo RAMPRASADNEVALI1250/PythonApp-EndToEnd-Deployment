@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apphttp
+  labels:
+    app: apphttpo0
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apphttp
+  template:
+    metadata:
+      labels:
+        app: apphttp
+    spec:
+      containers:
+      - name: apphttp
+        image: rampr/apphttp
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
